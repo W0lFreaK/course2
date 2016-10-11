@@ -6,6 +6,31 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication25
 {
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            mest temp;
+            temp = new city();
+            (temp as city).nas = "asdasd";
+                       
+            Console.WriteLine(temp.getClass());
+            temp = new mega();            
+            Console.WriteLine(temp.getClass());
+            temp = new region();
+            Console.WriteLine(temp.getClass());
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication25
+{
     abstract class mest
     {
         public string longitude { get; set; }
@@ -27,7 +52,8 @@ namespace ConsoleApplication25
         {
             return longitude + ' ' + latitude + ' ' + height + ' ' + width + ' ' + length + ' ';
         }
-    }
+        public abstract string getClass();
+         }
     class city : mest
     {
         public city()
@@ -57,6 +83,10 @@ namespace ConsoleApplication25
         {
             return base.ToString() + nas + ' ' + getS() + ' ' + plotNaselenia();
         }
+        public override string getClass()
+        {
+            return ("Class City");          
+        }
     }
     class mega : city
     {
@@ -76,6 +106,10 @@ namespace ConsoleApplication25
         public override string ToString()
         {
             return base.ToString() + name + ' ' + capital;
+        }
+        public override string getClass()
+        {
+            return ("Class Mega");
         }
     }
     class region : mest
@@ -97,6 +131,10 @@ namespace ConsoleApplication25
         public override string ToString()
         {
             return base.ToString() + capital_name;
+        }
+        public override string getClass()
+        {
+            return ("Class Region");
         }
     }
 
